@@ -1,0 +1,61 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+  	<title>Table 10</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="{% static 'table/css/style.css'%}">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-dark">
+						  <thead>
+						    <tr class="bg-dark">
+						      <th>SUBJECT</th>
+						      <th>TITLE</th>
+						      <th>AUTHOR</th>
+						      <th>PUBLISHER</th>
+						      <th>EDITION</th>
+								<th>NO. OF PAGES</th>
+								<th ><a href="/add"><button STYLE="float:right" class="btn btn-success"> + ADD</button></a></th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  {% for i in book %}
+						    <tr class="bg-primary">
+						      <td>{{i.subject}}</td>
+						      <td>{{i.title}}</td>
+						      <td>{{i.author}}</td>
+						      <td>{{i.publisher}}</td>
+						      <td>{{i.edition_no}}</td>
+								<td>{{i.number_of_pages}}</td>
+								<td><a href="/update/{{i.id}}"><button class="btn btn-warning">UPDATE</button></a><a href="/delete/{{i.id}}"><button class="btn btn-danger">DELETE</button></a></td>
+						    </tr>
+							{% endfor %}
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'table/js/jquery.min.js'%}"></script>
+  <script src="{% static 'table/js/popper.js'%}"></script>
+  <script src="{% static 'table/js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'table/js/main.js'%}"></script>
+
+	</body>
+</html>
+
